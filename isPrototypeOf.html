@@ -1,0 +1,36 @@
+<script src="tinytest.js"></script>
+<script>
+
+// The isPrototypeOf() method checks if an object exists in another object's prototype chain.
+// object: The object whose prototype chain will be searched.
+// return: A Boolean indicating whether the calling object lies in the prototype chain of the specified object.
+
+function isPrototypeOf(prototypeObj, object) {
+
+}
+
+
+/* ---------- TESTS ---------- */
+
+tests({
+  '': function(){
+
+    var canine = {
+      bark: function() {
+        console.log('bark');
+      }
+    };
+
+    var dog = Object.create(canine);
+    dog.fetch = function() {
+      console.log('fetch');
+    };
+
+    var myDog = Object.create(dog);
+    var empty = Object.create(null);
+
+    eq(dog.isPrototypeOf(myDog), isPrototypeOf(dog, myDog));
+  }
+});
+
+</script>
